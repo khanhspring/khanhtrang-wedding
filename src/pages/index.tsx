@@ -3,6 +3,7 @@ import BannerImages from '@/components/BannerImages';
 import HeartIcon from '@/components/HeartIcon';
 import { Raleway, Sacramento } from 'next/font/google';
 import localFont from 'next/font/local';
+import Image from 'next/image';
 
 const helloHoney = localFont({ src: '../assets/fonts/HelloHoney/HelloHoney.otf' })
 
@@ -48,28 +49,28 @@ export default function Home() {
           <div className="mt-10">
             <div className="columns-2 md:columns-3 gap-6">
               <div className="mt-0">
-                <img className="h-auto max-w-full rounded-lg" src="/images/gallery/2.jpg" alt="" />
+                <Image className="h-auto max-w-full rounded-lg" src="/images/gallery/2.jpg" alt="" width={500} height={500}/>
               </div>
               <div className="mt-6">
-                <img className="h-auto max-w-full rounded-lg" src="/images/gallery/4.jpg" alt="" />
+                <Image className="h-auto max-w-full rounded-lg" src="/images/gallery/4.jpg" alt="" width={500} height={500}/>
               </div>
               <div className="mt-6">
-                <img className="h-auto max-w-full rounded-lg" src="/images/gallery/7.jpg" alt="" />
+                <Image className="h-auto max-w-full rounded-lg" src="/images/gallery/7.jpg" alt="" width={500} height={500}/>
               </div>
               <div className="mt-6">
-                <img className="h-auto max-w-full rounded-lg" src="/images/gallery/3.jpg" alt="" />
+                <Image className="h-auto max-w-full rounded-lg" src="/images/gallery/3.jpg" alt="" width={500} height={500}/>
               </div>
               <div className="mt-6">
-                <img className="h-auto max-w-full rounded-lg" src="/images/gallery/10.jpg" alt="" />
+                <Image className="h-auto max-w-full rounded-lg" src="/images/gallery/10.jpg" alt="" width={500} height={500}/>
               </div>
               <div className="mt-6">
-                <img className="h-auto max-w-full rounded-lg" src="/images/gallery/8.jpg" alt="" />
+                <Image className="h-auto max-w-full rounded-lg" src="/images/gallery/8.jpg" alt="" width={500} height={500}/>
               </div>
               <div className="mt-6">
-                <img className="h-auto max-w-full rounded-lg" src="/images/gallery/5.jpg" alt="" />
+                <Image className="h-auto max-w-full rounded-lg" src="/images/gallery/5.jpg" alt="" width={500} height={500}/>
               </div>
               <div className="mt-6">
-                <img className="h-auto max-w-full rounded-lg" src="/images/gallery/6.jpg" alt="" />
+                <Image className="h-auto max-w-full rounded-lg" src="/images/gallery/6.jpg" alt="" width={500} height={500}/>
               </div>
             </div>
           </div>
@@ -99,12 +100,12 @@ export default function Home() {
               </div>
             </div>
             <div className="">
-              <img src="/images/bride-event.jpg" alt="" />
+              <Image src="/images/bride-event.jpg" alt="" width={200} height={200} />
             </div>
           </div>
           <div className="mt-20 grid grid-cols-2 gap-20">
             <div className="">
-              <img src="/images/groom-event.jpg" alt="" className="w-[250px]" />
+              <Image src="/images/groom-event.jpg" alt="" className="w-[250px]" width={200} height={200} />
             </div>
             <div className={raleway.className}>
               <div style={{ backgroundImage: `url('/images/groom-location.jpg')` }} className="bg-center bg-cover w-[170px] px-3 py-3 rounded-lg  text-white">
