@@ -309,7 +309,7 @@ const HomePage: NextPage<Props> = ({ invitee }) => {
               <div className="p-5 md:px-10 md:py-12 backdrop-blur-lg bg-white/30 md:border border-[#F3ECE9] md:rounded">
                 <div className="flex flex-col justify-center items-center gap-3 px-5 mb-10">
                   <h2 className="text-2xl md:text-[40px] uppercase tracking-widest text-center">Gửi lời chúc</h2>
-                  <p className="md:text-lg text-zinc-500 text-center">
+                  <p className="md:text-lg text-zinc-500 text-center mt-2">
                     Những lời chúc tốt đẹp sẽ góp phần vun đắp hạnh phúc cho gia đình nhỏ của Khánh & Trang
                   </p>
                 </div>
