@@ -2,13 +2,12 @@ import AlbumIcon from '@/components/AlbumIcon';
 import BannerImages from '@/components/BannerImages';
 import Countdown from '@/components/Countdown';
 import DirectionIcon from '@/components/DirectionIcon';
-import FullPageConfetti from '@/components/FullPageConfetti';
 import Logo from '@/components/Logo';
 import MenuIcon from '@/components/MenuIcon';
 import StaticCalendar from '@/components/StaticCalendar';
 import Image from 'next/image';
 import Link from 'next/link';
-import { MouseEvent, MouseEventHandler } from 'react';
+import { MouseEvent } from 'react';
 
 export default function Home() {
 
@@ -198,7 +197,6 @@ export default function Home() {
           </div>
         </section>
       </div>
-      <FullPageConfetti />
     </>
   )
 }
