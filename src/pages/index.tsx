@@ -61,6 +61,18 @@ const HomePage: NextPage<Props> = ({ invitee }) => {
     }
   }, [invitee]);
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (modalRef.current?.open) {
+        modalRef.current?.close();
+      }
+    }, 10000);
+
+    return () => {
+      clearTimeout(timeout);
+    }
+  }, [invitee]);
+
   return (
     <>
       <div className="text-zinc-700">

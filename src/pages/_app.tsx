@@ -1,6 +1,7 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import { Raleway } from 'next/font/google';
+import Script from 'next/script';
 
 const raleway = Raleway({
   subsets: ['latin'],
@@ -9,8 +10,20 @@ const raleway = Raleway({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className={raleway.className}>
-      <Component {...pageProps} />
-    </div>
+    <>
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-J730V6YZF7"></Script>
+      <Script id="google-analytics">
+        {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-J730V6YZF7');
+      `}
+      </Script>
+      <div className={raleway.className}>
+        <Component {...pageProps} />
+      </div>
+    </>
   );
 }
