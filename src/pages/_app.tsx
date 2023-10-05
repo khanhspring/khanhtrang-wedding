@@ -1,7 +1,9 @@
-import '@/styles/globals.css'
+import '@/styles/globals.css';
+import 'simplebar-react/dist/simplebar.min.css';
 import type { AppProps } from 'next/app'
 import { Raleway } from 'next/font/google';
 import Script from 'next/script';
+import { Toaster } from 'react-hot-toast';
 
 const raleway = Raleway({
   subsets: ['latin'],
@@ -24,6 +26,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <div className={raleway.className}>
         <Component {...pageProps} />
       </div>
+      <Toaster />
     </>
   );
 }

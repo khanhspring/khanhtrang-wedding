@@ -4,11 +4,15 @@ import Countdown from '@/components/Countdown';
 import DirectionIcon from '@/components/DirectionIcon';
 import Logo from '@/components/Logo';
 import MenuIcon from '@/components/MenuIcon';
+import MessageForm from '@/components/MessageForm';
+import MessageItem from '@/components/MessageItem';
 import StaticCalendar from '@/components/StaticCalendar';
+import { useMessages } from '@/shared/hooks/message';
 import { GetServerSideProps, NextPage } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { MouseEvent, useEffect, useRef } from 'react';
+import SimpleBar from 'simplebar-react';
 
 type Props = {
   invitee?: string;
@@ -27,6 +31,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
 
 const HomePage: NextPage<Props> = ({ invitee }) => {
   const modalRef = useRef<HTMLDialogElement>(null);
+  const { data } = useMessages('AuxEN8nLjFed');
 
   const handleClick = (e: MouseEvent, targetId?: string) => {
     const elem = document.activeElement as HTMLElement;
@@ -66,7 +71,7 @@ const HomePage: NextPage<Props> = ({ invitee }) => {
       if (modalRef.current?.open) {
         modalRef.current?.close();
       }
-    }, 10000);
+    }, 30000);
 
     return () => {
       clearTimeout(timeout);
@@ -251,7 +256,7 @@ const HomePage: NextPage<Props> = ({ invitee }) => {
             <div className="grid grid-cols-1 lg:grid-cols-3">
               <div className="flex flex-col gap-2 justify-center py-5 md:py-14 mx-5 sm:mx-0">
                 <h2 className="text-2xl md:text-4xl uppercase tracking-widest">Mừng cưới</h2>
-                <p className="text-xl">Nhớ ghi tên nhé!</p>
+                <p className="md:text-lg">Nhớ ghi tên nhé!</p>
               </div>
               <div className="px-16 md:px-28 py-20 md:py-40 bg-[#7C36BB] text-white flex flex-col justify-center">
                 <div>
@@ -282,6 +287,33 @@ const HomePage: NextPage<Props> = ({ invitee }) => {
                   <p className="text-xl">1903 6301 4920 11</p>
                   <p className="opacity-80">Chú rể</p>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="mt-10 py-10 md:py-20">
+          <div className="container m-auto mt-10 grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 items-center">
+            <div className="bg-[url('/images/bg-8.jpg')] bg-cover bg-center ">
+              <div className="rounded-lg">
+                <SimpleBar style={{ maxHeight: 700 }}>
+                  <div className="flex flex-col gap-5 p-5">
+                    {data?.data.map((item: any) => (
+                      <MessageItem key={item._id} message={item}/>
+                    ))}
+                  </div>
+                </SimpleBar>
+              </div>
+            </div>
+            <div className="p-7 shadow-md">
+              <div className="p-10 py-12 backdrop-blur-lg bg-white/30 border border-[#F3ECE9] rounded">
+                <div className="flex flex-col justify-center items-center gap-3 px-5 mb-10">
+                  <h2 className="text-2xl md:text-[40px] uppercase tracking-widest text-center">Gửi lời chúc</h2>
+                  <p className="md:text-lg text-zinc-500 text-center">
+                    Những lời chúc tốt đẹp sẽ góp phần vun đắp hạnh phúc cho gia đình nhỏ của Khánh & Trang
+                  </p>
+                </div>
+                <MessageForm invitee={invitee} />
               </div>
             </div>
           </div>
@@ -324,7 +356,7 @@ const HomePage: NextPage<Props> = ({ invitee }) => {
           <p className="mt-3">Sự hiện diện của quý vị là niềm vinh hạnh cho gia đình chúng tôi</p>
           <div className="modal-action">
             <form method="dialog">
-              <button className="btn outline-none">Xem chi tiết</button>
+              <button className="btn outline-none">Đóng</button>
             </form>
           </div>
         </div>
