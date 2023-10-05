@@ -1,33 +1,16 @@
 import AlbumIcon from '@/components/AlbumIcon';
 import BannerImages from '@/components/BannerImages';
-import HeartIcon from '@/components/HeartIcon';
+import Logo from '@/components/Logo';
+import MenuIcon from '@/components/MenuIcon';
 import StaticCalendar from '@/components/StaticCalendar';
-import { Raleway, Sacramento } from 'next/font/google';
-import localFont from 'next/font/local';
 import Image from 'next/image';
-
-const helloHoney = localFont({ src: '../assets/fonts/HelloHoney/HelloHoney.otf' })
-
-const sacramento = Sacramento({
-  subsets: ['latin'],
-  weight: '400'
-});
-
-const raleway = Raleway({
-  subsets: ['latin'],
-  weight: '500'
-});
 
 export default function Home() {
   return (
     <div className="text-[#4a3e5a]">
       <header className="hidden md:block">
         <div className="container m-auto flex items-center justify-between">
-          <h1 className={sacramento.className}>
-            <a className="flex items-center justify-center gap-1 text-3xl" href="">
-              Khánh <HeartIcon width={11} height={11} className="ml-0.5" /> Trang
-            </a>
-          </h1>
+          <Logo />
           <nav className="">
             <div className="flex items-center gap-4 text-md">
               <a href="#" className="px-2 py-8">Home</a>
@@ -39,6 +22,27 @@ export default function Home() {
           </nav>
         </div>
       </header>
+      <div className="md:hidden navbar bg-base-100 z-[100] px-5 py-5 sticky top-0">
+        <div className="flex-1">
+          <Logo />
+        </div>
+        <div className="flex-none">
+          <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-ghost btn-circle">
+              <MenuIcon />
+            </label>
+            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+              <li><a>Home</a></li>
+              <li><a>Album ảnh</a></li>
+              <li><a>Thời gian / Địa điểm</a></li>
+              <li><a>Mừng cưới</a></li>
+              <li><a>Gửi lời chúc</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
       <section className="">
         <BannerImages />
       </section>
@@ -83,7 +87,7 @@ export default function Home() {
       <section className="my-32">
         <div className="container mx-auto">
           <div className="flex flex-col justify-center items-center gap-3 px-5">
-            <h2 className="text-2xl md:text-[40px] uppercase tracking-widest text-center">Thời gian / địa điểm nhà gái</h2>
+            <h2 className="text-2xl md:text-[40px] uppercase tracking-widest text-center">Tiệc cưới nhà gái</h2>
             <p className="md:text-lg text-zinc-500 text-center">
               Sự hiện diện của quý vị là niềm vinh hạnh cho gia đình chúng tôi
             </p>
@@ -112,7 +116,7 @@ export default function Home() {
       <section className="my-32">
         <div className="container mx-auto">
           <div className="flex flex-col justify-center items-center gap-3 px-5">
-            <h2 className="text-2xl md:text-[40px] uppercase tracking-widest text-center">Thời gian / địa điểm nhà trai</h2>
+            <h2 className="text-2xl md:text-[40px] uppercase tracking-widest text-center">Tiệc cưới nhà trai</h2>
             <p className="md:text-lg text-zinc-500 text-center">
               Sự hiện diện của quý vị là niềm vinh hạnh cho gia đình chúng tôi
             </p>
