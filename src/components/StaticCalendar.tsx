@@ -13,7 +13,6 @@ export default function StaticCalendar({ date: dateStr, className }: Props) {
   const dayOfMonth = getDate(date);
 
   const daysOfPrevMonths = (dayOfWeek || 7) - 1;
-  console.log(daysOfPrevMonths);
 
   return (
     <div className={`grid w-full max-w-[350px] ${className}`}>
