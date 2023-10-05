@@ -141,13 +141,17 @@ export default function Home() {
                     <div className="rounded-lg backdrop-blur-sm bg-white/30 p-5 flex items-center">
                       <Countdown date="2023-10-22T02:30:00.999Z" />
                     </div>
-                    <div className="hero relative bg-[url('/images/map-2.png')] bg-cover bg-center rounded-lg min-h-[100px] w-full md:max-w-[200px] cursor-pointer text-white">
+                    <Link
+                      className="hero relative bg-[url('/images/map-2.png')] bg-cover bg-center rounded-lg min-h-[100px] w-full md:max-w-[200px] cursor-pointer text-white"
+                      href="https://maps.app.goo.gl/iRfHdbCXufv9GPf87?g_st=ic"
+                      target="_blank"
+                    >
                       <div className="hero-overlay bg-black/10 rounded-lg z-10"></div>
                       <div className="flex gap-4 justify-between w-full p-5 z-50">
                         <span className="text-lg">Chỉ đường</span>
                         <DirectionIcon width={25} />
                       </div>
-                    </div>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -180,17 +184,21 @@ export default function Home() {
                     <div className="rounded-lg backdrop-blur-sm bg-white/30 p-5 flex items-center">
                       <Countdown date="2023-10-29T03:30:00.999Z" />
                     </div>
-                    <div className="hero relative bg-[url('/images/map-1.png')] bg-cover bg-center rounded-lg min-h-[100px] w-full md:max-w-[200px] cursor-pointer text-white">
+                    <Link
+                      className="hero relative bg-[url('/images/map-1.png')] bg-cover bg-center rounded-lg min-h-[100px] w-full md:max-w-[200px] cursor-pointer text-white"
+                      href="https://maps.app.goo.gl/YLbxPGzwjodDPGjC8?g_st=ic"
+                      target="_blank"
+                    >
                       <div className="hero-overlay bg-black/10 rounded-lg z-10"></div>
                       <div className="flex gap-4 justify-between w-full p-5 z-50">
                         <span className="text-lg">Chỉ đường</span>
                         <DirectionIcon width={25} />
                       </div>
-                    </div>
+                    </Link>
                   </div>
                 </div>
                 <div className="p-10 rounded-lg backdrop-blur-lg bg-white/30 mt-5 md:mt-0">
-                  <StaticCalendar date="2023/10/22" className="!max-w-full md:max-w-[350px]" />
+                  <StaticCalendar date="2023/10/29" className="!max-w-full md:max-w-[350px]" />
                 </div>
               </div>
             </div>
