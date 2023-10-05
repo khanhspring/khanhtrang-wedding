@@ -45,25 +45,25 @@ export default function Countdown({ date: dateStr }: Props) {
     <div className="grid grid-flow-col gap-5 text-center w-full">
       <div className="flex flex-col justify-center items-center">
         <span className="countdown font-mono text-3xl">
-          <span ref={dayRef} style={{ "--value": 0 }}></span>
+          <span ref={dayRef} style={{ ["--value" as any]: 0 }}></span>
         </span>
         ngày
       </div>
       <div className="flex flex-col justify-center items-center">
         <span className="countdown font-mono text-3xl">
-          <span ref={hourRef} style={{ "--value": 0 }}></span>
+          <span ref={hourRef} style={{ ["--value" as any]: 0 }}></span>
         </span>
         giờ
       </div>
       <div className="flex flex-col justify-center items-center">
         <span className="countdown font-mono text-3xl">
-          <span ref={minRef} style={{ "--value": 0 }}></span>
+          <span ref={minRef} style={{ ["--value" as any]: 0 }}></span>
         </span>
         phút
       </div>
       <div className="flex flex-col justify-center items-center">
         <span className="countdown font-mono text-3xl">
-          <span ref={secRef} style={{ "--value": 0 }}></span>
+          <span ref={secRef} style={{ ["--value" as any]: 0 }}></span>
         </span>
         giây
       </div>
