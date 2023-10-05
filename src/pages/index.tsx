@@ -91,12 +91,12 @@ const HomePage: NextPage<Props> = ({ invitee }) => {
                 <Link onClick={(e) => handleClick(e, 'bride')} href="#bride" className="px-2 py-8">Nhà gái</Link>
                 <Link onClick={(e) => handleClick(e, 'groom')} href="#groom" className="px-2 py-8">Nhà trai</Link>
                 <Link onClick={(e) => handleClick(e, 'bank-info')} href="#bank-info" className="px-2 py-8">Mừng cưới</Link>
-                <Link onClick={(e) => handleClick(e, '')} href="#" className="px-2 py-8">Gửi lời chúc</Link>
+                <Link onClick={(e) => handleClick(e, 'message')} href="#message" className="px-2 py-8">Gửi lời chúc</Link>
               </div>
             </nav>
           </div>
         </header>
-        <div className="md:hidden navbar bg-base-100 z-[100] px-5 py-5 sticky top-0 backdrop-blur-lg bg-white/70">
+        <div className="md:hidden navbar bg-base-100 z-[100] px-5 py-5 sticky top-0 backdrop-blur-lg bg-white/70 shadow">
           <div className="flex-1">
             <Logo />
           </div>
@@ -111,7 +111,7 @@ const HomePage: NextPage<Props> = ({ invitee }) => {
                 <li className="py-1"><Link onClick={(e) => handleClick(e, 'bride')} href="#bride">Nhà gái</Link></li>
                 <li className="py-1"><Link onClick={(e) => handleClick(e, 'groom')} href="#groom">Nhà trai</Link></li>
                 <li className="py-1"><Link onClick={(e) => handleClick(e, 'bank-info')} href="#bank-info">Mừng cưới</Link></li>
-                <li className="py-1"><Link onClick={(e) => handleClick(e, '')} href="#">Gửi lời chúc</Link></li>
+                <li className="py-1"><Link onClick={(e) => handleClick(e, 'message')} href="#message">Gửi lời chúc</Link></li>
               </ul>
             </div>
           </div>
@@ -292,11 +292,11 @@ const HomePage: NextPage<Props> = ({ invitee }) => {
           </div>
         </section>
 
-        <section className="mt-10 py-10 md:py-20">
-          <div className="container m-auto mt-10 grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 items-center">
-            <div className="bg-[url('/images/bg-8.jpg')] bg-cover bg-center ">
-              <div className="rounded-lg">
-                <SimpleBar style={{ maxHeight: 700 }}>
+        <section className="mt-10 md:mt-20 py-10 md:py-20 scroll-mt-20" id="message">
+          <div className="container m-auto flex flex-col-reverse lg:grid lg:grid-cols-[1fr_1fr] gap-10 items-center">
+            <div className="bg-[url('/images/bg-8.jpg')] bg-cover bg-center  w-full">
+              <div className="rounded-lg w-full">
+                <SimpleBar className="max-h-[350px] md:max-h-[650px] w-full">
                   <div className="flex flex-col gap-5 p-5">
                     {data?.data.map((item: any) => (
                       <MessageItem key={item._id} message={item}/>
@@ -305,8 +305,8 @@ const HomePage: NextPage<Props> = ({ invitee }) => {
                 </SimpleBar>
               </div>
             </div>
-            <div className="p-7 shadow-md">
-              <div className="p-10 py-12 backdrop-blur-lg bg-white/30 border border-[#F3ECE9] rounded">
+            <div className="md:p-7 md:shadow-md">
+              <div className="p-5 md:px-10 md:py-12 backdrop-blur-lg bg-white/30 md:border border-[#F3ECE9] md:rounded">
                 <div className="flex flex-col justify-center items-center gap-3 px-5 mb-10">
                   <h2 className="text-2xl md:text-[40px] uppercase tracking-widest text-center">Gửi lời chúc</h2>
                   <p className="md:text-lg text-zinc-500 text-center">
