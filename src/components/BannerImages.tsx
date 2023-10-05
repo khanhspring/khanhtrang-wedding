@@ -7,6 +7,7 @@ import localFont from 'next/font/local';
 
 import 'swiper/css';
 import 'swiper/css/autoplay';
+import Image from 'next/image';
 
 const helloHoney = localFont({ src: '../assets/fonts/HelloHoney/HelloHoney.otf' })
 
@@ -34,17 +35,23 @@ export default function BannerImages({ ...rest }) {
     >
       {slides.map((item, index) => (
         <SwiperSlide key={index}>
-          <div style={{ backgroundImage: `url('${item.url}')` }} className="h-[750px] bg-top bg-cover backdrop-blur flex">
-            <div className="w-full h-full flex items-center bg-black/10">
+          <div className="h-[300px] md:h-[750px] bg-top bg-cover backdrop-blur flex relative">
+            <Image
+              layout="fill"
+              className="object-cover object-top pointer-events-none z-10"
+              src={item.url}
+              alt=""
+            />
+            <div className="w-full h-full flex items-center bg-black/10 relative z-50">
               <div className="container m-auto flex items-center justify-center flex-col">
                 <div className="relative">
-                  <h2 className={`${helloHoney.className} text-white text-[170px] leading-[160px]`}>
+                  <h2 className={`${helloHoney.className} text-white text-5xl md:text-[170px] md:leading-[160px]`}>
                     {item.content}
                   </h2>
-                  <HeartTagIcon width={150} height={150} className="ml-5 fill-white absolute top-0 -right-[180px]" />
+                  <HeartTagIcon width={150} height={150} className="ml-5 fill-white absolute top-0 -right-[180px] hidden md:block" />
                 </div>
-                <p className={`${sacramento.className} text-white text-[80px] flex items-center gap-3`}>
-                  Khánh <HeartIcon width={30} height={30} className="ml-5 fill-white" /> Trang
+                <p className={`${sacramento.className} text-white text-4xl md:text-[80px] flex items-center gap-2 md:gap-3 mt-5`}>
+                  Khánh <HeartIcon className="md:ml-5 fill-white w-5 h-5 md:w-8 md:h-8" /> Trang
                 </p>
               </div>
             </div>
