@@ -35,7 +35,7 @@ export default function BannerImages({ ...rest }) {
     >
       {slides.map((item, index) => (
         <SwiperSlide key={index}>
-          <div className="h-[300px] md:h-[750px] bg-top bg-cover backdrop-blur flex relative">
+          <div className="h-[300px] md:h-[600px] lg:h-[750px] bg-top bg-cover backdrop-blur flex relative">
             <Image
               layout="fill"
               className="object-cover object-top pointer-events-none z-10"
@@ -45,10 +45,10 @@ export default function BannerImages({ ...rest }) {
             <div className="w-full h-full flex items-center bg-black/10 relative z-50">
               <div className="container m-auto flex items-center justify-center flex-col">
                 <div className="relative">
-                  <h2 className={`${helloHoney.className} text-white text-5xl md:text-[170px] md:leading-[160px]`}>
+                  <h2 className={`${helloHoney.className} text-white text-5xl md:text-[90px] lg:text-[120px] md:leading-[90px] lg:leading-[130px]`}>
                     {item.content}
                   </h2>
-                  <HeartTagIcon width={150} height={150} className="ml-5 fill-white absolute top-0 -right-[180px] hidden md:block" />
+                  <HeartTagIcon width={150} height={150} className="ml-5 fill-white absolute top-0 -right-[160px] hidden lg:block" />
                 </div>
                 <p className={`${sacramento.className} text-white text-4xl md:text-[80px] flex items-center gap-2 md:gap-3 mt-5`}>
                   Khánh <HeartIcon className="md:ml-5 fill-white w-5 h-5 md:w-8 md:h-8" /> Trang

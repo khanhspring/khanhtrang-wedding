@@ -5,11 +5,28 @@ import DirectionIcon from '@/components/DirectionIcon';
 import Logo from '@/components/Logo';
 import MenuIcon from '@/components/MenuIcon';
 import StaticCalendar from '@/components/StaticCalendar';
+import { GetServerSideProps, NextPage } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { MouseEvent } from 'react';
+import { MouseEvent, useEffect, useRef } from 'react';
 
-export default function Home() {
+type Props = {
+  invitee?: string;
+};
+
+export const getServerSideProps: GetServerSideProps<Props> = async (
+  context
+) => {
+  const invitee = (context.query?.invitee || '') as string;
+  return {
+    props: {
+      invitee,
+    },
+  };
+};
+
+const HomePage: NextPage<Props> = ({ invitee }) => {
+  const modalRef = useRef<HTMLDialogElement>(null);
 
   const handleClick = (e: MouseEvent, targetId?: string) => {
     const elem = document.activeElement as HTMLElement;
@@ -31,6 +48,18 @@ export default function Home() {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (invitee) {
+        modalRef.current?.showModal();
+      }
+    }, 1000);
+
+    return () => {
+      clearTimeout(timeout);
+    }
+  }, [invitee]);
 
   return (
     <>
@@ -60,12 +89,12 @@ export default function Home() {
                 <MenuIcon />
               </label>
               <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                <li><Link onClick={(e) => handleClick(e)} href="#">Home</Link></li>
-                <li><Link onClick={(e) => handleClick(e, 'album')} href="#album">Album ảnh</Link></li>
-                <li><Link onClick={(e) => handleClick(e, 'bride')} href="#bride">Nhà gái</Link></li>
-                <li><Link onClick={(e) => handleClick(e, 'groom')} href="#groom">Nhà trai</Link></li>
-                <li><Link onClick={(e) => handleClick(e, 'bank-info')} href="#bank-info">Mừng cưới</Link></li>
-                <li><Link onClick={(e) => handleClick(e, '')} href="#">Gửi lời chúc</Link></li>
+                <li className="py-1"><Link onClick={(e) => handleClick(e)} href="#">Home</Link></li>
+                <li className="py-1"><Link onClick={(e) => handleClick(e, 'album')} href="#album">Album ảnh</Link></li>
+                <li className="py-1"><Link onClick={(e) => handleClick(e, 'bride')} href="#bride">Nhà gái</Link></li>
+                <li className="py-1"><Link onClick={(e) => handleClick(e, 'groom')} href="#groom">Nhà trai</Link></li>
+                <li className="py-1"><Link onClick={(e) => handleClick(e, 'bank-info')} href="#bank-info">Mừng cưới</Link></li>
+                <li className="py-1"><Link onClick={(e) => handleClick(e, '')} href="#">Gửi lời chúc</Link></li>
               </ul>
             </div>
           </div>
@@ -205,11 +234,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mt-16 scroll-mt-20" id="bank-info">
+        <section className="mt-10 md:mt-16 scroll-mt-20" id="bank-info">
           <div className="container m-auto">
             <div className="grid grid-cols-1 lg:grid-cols-3">
-              <div className="flex flex-col gap-2 justify-center py-14 mx-5 sm:mx-0">
-                <h2 className="text-4xl font-bold uppercase">Mừng cưới</h2>
+              <div className="flex flex-col gap-2 justify-center py-5 md:py-14 mx-5 sm:mx-0">
+                <h2 className="text-2xl md:text-4xl uppercase tracking-widest">Mừng cưới</h2>
                 <p className="text-xl">Nhớ ghi tên nhé!</p>
               </div>
               <div className="px-16 md:px-28 py-20 md:py-40 bg-[#7C36BB] text-white flex flex-col justify-center">
@@ -248,7 +277,7 @@ export default function Home() {
 
         <section className="mt-10 py-10 md:py-20">
           <div className="container m-auto flex flex-col justify-center items-center">
-            <h3 className="text-3xl font-semibold text-center mb-5">@ Tag us on Facebook</h3>
+            <h3 className="text-3xl font-semibold text-center mb-5">Tag us on Facebook</h3>
             <p>Cô dâu: @Thu Trang</p>
             <p>Chú rể: @Trần Xuân Khánh</p>
             <p>Hashtag: #khanhtrang_wedding</p>
@@ -276,6 +305,20 @@ export default function Home() {
           </div>
         </footer>
       </div>
+      <dialog id="modal" className="modal" ref={modalRef}>
+        <div className="modal-box">
+          <h3 className="font-bold text-lg mb-5">Xin chào!</h3>
+          <p>Trân trọng kính mời {invitee} tới chung vui cùng cô dâu Thu Trang và chú rể Xuân Khánh</p>
+          <p className="mt-3">Sự hiện diện của quý vị là niềm vinh hạnh cho gia đình chúng tôi</p>
+          <div className="modal-action">
+            <form method="dialog">
+              <button className="btn outline-none">Xem chi tiết</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
     </>
   )
 }
+
+export default HomePage;

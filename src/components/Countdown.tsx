@@ -2,6 +2,9 @@ import { differenceInBusinessDays, differenceInSeconds, parse, parseISO } from "
 import { useEffect, useRef } from "react";
 
 function extractSeconds(totalSeconds: number) {
+  if (totalSeconds <= 0) {
+    return { d: 0, h: 0, m: 0, s: 0 };
+  }
   const totalMinutes = Math.floor(totalSeconds / 60);
   const totalHours = Math.floor(totalMinutes / 60);
 
