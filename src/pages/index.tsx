@@ -9,6 +9,7 @@ import MessageItem from '@/components/MessageItem';
 import StaticCalendar from '@/components/StaticCalendar';
 import { useMessages } from '@/shared/hooks/message';
 import { GetServerSideProps, NextPage } from 'next';
+import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import { MouseEvent, useEffect, useRef } from 'react';
@@ -80,6 +81,9 @@ const HomePage: NextPage<Props> = ({ invitee }) => {
 
   return (
     <>
+      <Head>
+        <title>Khánh Trang Wedding</title>
+      </Head>
       <div className="text-zinc-700">
         <header className="hidden md:block sticky top-0 z-[100] backdrop-blur-lg bg-white/70 shadow">
           <div className="container m-auto flex items-center justify-between">
@@ -185,7 +189,7 @@ const HomePage: NextPage<Props> = ({ invitee }) => {
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-5 mt-7">
                     <div className="rounded-lg backdrop-blur-sm bg-white/30 p-5 flex items-center">
-                      <Countdown date="2023-10-22T02:30:00.999Z" />
+                      <Countdown date="2023-10-22T02:00:00.999Z" />
                     </div>
                     <Link
                       className="hero relative bg-[url('/images/map-2.png')] bg-cover bg-center rounded-lg min-h-[100px] w-full md:max-w-[200px] cursor-pointer text-white"
