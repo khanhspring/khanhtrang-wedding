@@ -83,6 +83,7 @@ const HomePage: NextPage<Props> = ({ invitee }) => {
     <>
       <Head>
         <title>Khánh Trang Wedding</title>
+        <meta property="og:image" content="/images/khanh-trang-wedding.png" />
       </Head>
       <div className="text-zinc-700">
         <header className="hidden md:block sticky top-0 z-[100] backdrop-blur-lg bg-white/70 shadow">
