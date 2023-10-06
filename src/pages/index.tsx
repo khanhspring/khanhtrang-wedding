@@ -341,8 +341,8 @@ const HomePage: NextPage<Props> = ({ invitee }) => {
             alt=""
           />
           <div className="container m-auto flex flex-col relative z-50 items-center px-5 py-20">
-            <h3 className="text-5xl md:text-[100px] text-white font-black text-center">Thank you!</h3>
-            <p className="text-3xl md:text-[50px] text-white font-bold text-center">See you at the wedding!</p>
+            <h3 className="text-5xl md:text-[100px] text-white font-black text-center drop-shadow">Thank you!</h3>
+            <p className="text-3xl md:text-[50px] text-white font-bold text-center drop-shadow">See you at the wedding!</p>
           </div>
         </section>
 
