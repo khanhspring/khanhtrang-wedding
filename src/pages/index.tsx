@@ -236,7 +236,7 @@ const HomePage: NextPage<Props> = ({ invitee }) => {
               <Image
                 layout="fill"
                 className="object-cover object-center pointer-events-none z-1 rounded-lg"
-                src="/images/bg-3.jpg"
+                src="/images/bg-4.jpg"
                 alt=""
               />
               <div className="hero-overlay bg-black/20 z-10"></div>
@@ -286,7 +286,7 @@ const HomePage: NextPage<Props> = ({ invitee }) => {
                 <h2 className="text-2xl md:text-4xl uppercase tracking-widest">Mừng cưới</h2>
                 <p className="md:text-lg">Nhớ ghi tên nhé!</p>
               </div>
-              <div className="px-16 md:px-28 py-20 md:py-40 bg-[#7C36BB] text-white flex flex-col justify-center">
+              <div className="px-16 lg:px-28 py-20 lg:py-40 bg-[#7C36BB] text-white flex flex-col justify-center">
                 <div>
                   <Image className="h-[35px] w-auto grayscale opacity-50" src="/images/tp-bank-logo.png" alt="" width={200} height={200} />
                 </div>
@@ -301,7 +301,7 @@ const HomePage: NextPage<Props> = ({ invitee }) => {
                   <p className="opacity-80">Cô dâu</p>
                 </div>
               </div>
-              <div className="px-16 md:px-28 py-20 md:py-40 bg-[#BD2626] text-white flex flex-col justify-center">
+              <div className="px-16 lg:px-28 py-20 lg:py-40 bg-[#BD2626] text-white flex flex-col justify-center">
                 <div>
                   <Image className="h-[35px] w-auto grayscale opacity-50" src="/images/techcombank-logo.svg" alt="" width={200} height={200} />
                 </div>
@@ -336,7 +336,7 @@ const HomePage: NextPage<Props> = ({ invitee }) => {
             <div className="md:p-7 md:shadow-md">
               <div className="p-5 md:px-10 md:py-12 backdrop-blur-lg bg-white/30 md:border border-[#F3ECE9] md:rounded">
                 <div className="flex flex-col justify-center items-center gap-3 px-5 mb-10">
-                  <h2 className="text-2xl md:text-[40px] uppercase tracking-widest text-center">Gửi lời chúc</h2>
+                  <h2 className="text-2xl md:text-3xl uppercase tracking-widest text-center leading-10">Gửi lời chúc</h2>
                   <p className="md:text-lg text-zinc-500 text-center mt-2">
                     Những lời chúc tốt đẹp sẽ góp phần vun đắp hạnh phúc cho gia đình nhỏ của Khánh & Trang
                   </p>
