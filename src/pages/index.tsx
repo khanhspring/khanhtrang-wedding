@@ -174,9 +174,15 @@ const HomePage: NextPage<Props> = ({ invitee }) => {
             </div>
           </div>
           <div className="mt-10">
-            <div className="container hero relative m-auto bg-[url('/images/bg-3.jpg')] bg-cover">
-              <div className="hero-overlay bg-black/10"></div>
-              <div className="flex flex-col-reverse lg:flex-row gap-5 md:gap-20 items-stretch md:items-center p-5 py-10 md:p-20 md:py-24">
+            <div className="container hero relative m-auto">
+              <Image
+                layout="fill"
+                className="object-cover object-center pointer-events-none z-1 rounded-lg"
+                src="/images/bg-3.jpg"
+                alt=""
+              />
+              <div className="hero-overlay bg-black/10 z-10"></div>
+              <div className="flex flex-col-reverse lg:flex-row gap-5 md:gap-20 items-stretch md:items-center p-5 py-10 md:p-20 md:py-24 z-20">
                 <div className="p-10 rounded-lg backdrop-blur-lg bg-white/40 mt-5 md:mt-0">
                   <StaticCalendar date="2023/10/22" className="!max-w-full md:max-w-[350px]" />
                 </div>
@@ -192,10 +198,16 @@ const HomePage: NextPage<Props> = ({ invitee }) => {
                       <Countdown date="2023-10-22T02:00:00.999Z" />
                     </div>
                     <Link
-                      className="hero relative bg-[url('/images/map-2.png')] bg-cover bg-center rounded-lg min-h-[100px] w-full md:max-w-[200px] cursor-pointer text-white"
+                      className="hero relative rounded-lg min-h-[100px] w-full md:max-w-[200px] cursor-pointer text-white"
                       href="https://maps.app.goo.gl/iRfHdbCXufv9GPf87?g_st=ic"
                       target="_blank"
                     >
+                      <Image
+                        layout="fill"
+                        className="object-cover object-center pointer-events-none z-10 rounded-lg"
+                        src="/images/map-2.png"
+                        alt=""
+                      />
                       <div className="hero-overlay bg-black/10 rounded-lg z-10"></div>
                       <div className="flex gap-4 justify-between w-full p-5 z-50">
                         <span className="text-lg">Chỉ đường</span>
@@ -220,9 +232,15 @@ const HomePage: NextPage<Props> = ({ invitee }) => {
             </div>
           </div>
           <div className="mt-10">
-            <div className="container hero relative m-auto bg-[url('/images/bg-4.jpg')] bg-cover text-white">
-              <div className="hero-overlay bg-black/20"></div>
-              <div className="flex flex-col lg:flex-row gap-5 md:gap-20 items-stretch md:items-center px-5 py-10 md:px-20 md:py-24">
+            <div className="container hero relative m-auto text-white">
+              <Image
+                layout="fill"
+                className="object-cover object-center pointer-events-none z-1 rounded-lg"
+                src="/images/bg-3.jpg"
+                alt=""
+              />
+              <div className="hero-overlay bg-black/20 z-10"></div>
+              <div className="flex flex-col lg:flex-row gap-5 md:gap-20 items-stretch md:items-center px-5 py-10 md:px-20 md:py-24 z-20">
                 <div>
                   <h3 className="text-2xl md:text-[32px] uppercase tracking-wider font-semibold">Tiệc cưới tại gia đình <br className="md:hidden" /> nhà trai</h3>
                   <div className="mt-7 text-xl leading-9">
@@ -235,10 +253,16 @@ const HomePage: NextPage<Props> = ({ invitee }) => {
                       <Countdown date="2023-10-29T03:30:00.999Z" />
                     </div>
                     <Link
-                      className="hero relative bg-[url('/images/map-1.png')] bg-cover bg-center rounded-lg min-h-[100px] w-full md:max-w-[200px] cursor-pointer text-white"
+                      className="hero relative rounded-lg min-h-[100px] w-full md:max-w-[200px] cursor-pointer text-white"
                       href="https://maps.app.goo.gl/YLbxPGzwjodDPGjC8?g_st=ic"
                       target="_blank"
                     >
+                      <Image
+                        layout="fill"
+                        className="object-cover object-center pointer-events-none z-10 rounded-lg"
+                        src="/images/map-1.png"
+                        alt=""
+                      />
                       <div className="hero-overlay bg-black/10 rounded-lg z-10"></div>
                       <div className="flex gap-4 justify-between w-full p-5 z-50">
                         <span className="text-lg">Chỉ đường</span>
@@ -303,7 +327,7 @@ const HomePage: NextPage<Props> = ({ invitee }) => {
                 <SimpleBar className="max-h-[350px] md:max-h-[650px] w-full">
                   <div className="flex flex-col gap-5 p-5">
                     {data?.data.map((item: any) => (
-                      <MessageItem key={item._id} message={item}/>
+                      <MessageItem key={item._id} message={item} />
                     ))}
                   </div>
                 </SimpleBar>
