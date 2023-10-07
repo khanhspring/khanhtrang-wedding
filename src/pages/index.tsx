@@ -83,7 +83,7 @@ const HomePage: NextPage<Props> = ({ invitee }) => {
     <>
       <Head>
         <title>Khánh Trang Wedding</title>
-        <meta property="og:image" content="/images/khanh-trang-wedding.png" />
+        <meta property="og:image" content="/images/share-fb.jpg" />
       </Head>
       <div className="text-zinc-700">
         <header className="hidden md:block sticky top-0 z-[100] backdrop-blur-lg bg-white/70 shadow">
@@ -136,28 +136,52 @@ const HomePage: NextPage<Props> = ({ invitee }) => {
             <div className="mt-10 mx-5">
               <div className="columns-1 md:columns-2 lg:columns-3 gap-6">
                 <div className="mt-0">
+                  <Image className="h-auto w-full rounded-lg" src="/images/gallery/11.jpg" alt="" width={500} height={500} />
+                </div>
+                <div className="mt-6">
+                  <Image className="h-auto w-full rounded-lg" src="/images/gallery/13.jpg" alt="" width={500} height={500} />
+                </div>
+                <div className="mt-6">
                   <Image className="h-auto w-full rounded-lg" src="/images/gallery/2.jpg" alt="" width={500} height={500} />
                 </div>
                 <div className="mt-6">
                   <Image className="h-auto w-full rounded-lg" src="/images/gallery/4.jpg" alt="" width={500} height={500} />
                 </div>
                 <div className="mt-6">
-                  <Image className="h-auto w-full rounded-lg" src="/images/gallery/7.jpg" alt="" width={500} height={500} />
-                </div>
-                <div className="mt-6">
-                  <Image className="h-auto w-full rounded-lg" src="/images/gallery/3.jpg" alt="" width={500} height={500} />
-                </div>
-                <div className="mt-6">
-                  <Image className="h-auto w-full rounded-lg" src="/images/gallery/10.jpg" alt="" width={500} height={500} />
+                  <Image className="h-auto w-full rounded-lg" src="/images/gallery/6.jpg" alt="" width={500} height={500} />
                 </div>
                 <div className="mt-6">
                   <Image className="h-auto w-full rounded-lg" src="/images/gallery/8.jpg" alt="" width={500} height={500} />
                 </div>
                 <div className="mt-6">
+                  <Image className="h-auto w-full rounded-lg" src="/images/gallery/14.jpg" alt="" width={500} height={500} />
+                </div>
+                <div className="mt-6">
+                  <Image className="h-auto w-full rounded-lg" src="/images/gallery/12.jpg" alt="" width={500} height={500} />
+                </div>
+                <div className="mt-6">
+                  <Image className="h-auto w-full rounded-lg" src="/images/gallery/20.jpg" alt="" width={500} height={500} />
+                </div>
+                <div className="mt-6">
+                  <Image className="h-auto w-full rounded-lg" src="/images/gallery/16.jpg" alt="" width={500} height={500} />
+                </div>
+                <div className="mt-6">
+                  <Image className="h-auto w-full rounded-lg" src="/images/gallery/3.jpg" alt="" width={500} height={500} />
+                </div>
+                <div className="mt-6">
+                  <Image className="h-auto w-full rounded-lg" src="/images/gallery/18.jpg" alt="" width={500} height={500} />
+                </div>
+                <div className="mt-6">
+                  <Image className="h-auto w-full rounded-lg" src="/images/gallery/7.jpg" alt="" width={500} height={500} />
+                </div>
+                <div className="mt-6">
+                  <Image className="h-auto w-full rounded-lg" src="/images/gallery/22.jpg" alt="" width={500} height={500} />
+                </div>
+                <div className="mt-6">
                   <Image className="h-auto w-full rounded-lg" src="/images/gallery/5.jpg" alt="" width={500} height={500} />
                 </div>
                 <div className="mt-6">
-                  <Image className="h-auto w-full rounded-lg" src="/images/gallery/6.jpg" alt="" width={500} height={500} />
+                  <Image className="h-auto w-full rounded-lg" src="/images/gallery/10.jpg" alt="" width={500} height={500} />
                 </div>
               </div>
             </div>
