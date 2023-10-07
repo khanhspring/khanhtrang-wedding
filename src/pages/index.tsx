@@ -122,7 +122,7 @@ const HomePage: NextPage<Props> = ({ invitee }) => {
           </div>
         </div>
 
-        <section className="">
+        <section>
           <BannerImages />
         </section>
 
