@@ -17,20 +17,23 @@ import SimpleBar from 'simplebar-react';
 
 type Props = {
   invitee?: string;
+  bride: boolean;
 };
 
 export const getServerSideProps: GetServerSideProps<Props> = async (
   context
 ) => {
   const invitee = (context.query?.invitee || '') as string;
+  const bride = !!context.query?.bride || context.query?.bride === '';
   return {
     props: {
       invitee,
+      bride, // show only bride
     },
   };
 };
 
-const HomePage: NextPage<Props> = ({ invitee }) => {
+const HomePage: NextPage<Props> = ({ invitee, bride }) => {
   const modalRef = useRef<HTMLDialogElement>(null);
   const { data } = useMessages('AuxEN8nLjFed');
 
@@ -246,63 +249,65 @@ const HomePage: NextPage<Props> = ({ invitee }) => {
           </div>
         </section>
 
-        <section className="py-10 md:py-20 scroll-mt-20" id="groom">
-          <div className="container mx-auto">
-            <div className="flex flex-col justify-center items-center gap-3 px-5">
-              <h2 className="text-2xl md:text-[40px] uppercase tracking-widest text-center">Tiệc cưới nhà trai</h2>
-              <p className="md:text-lg text-zinc-500 text-center">
-                Sự hiện diện của quý vị là niềm vinh hạnh cho gia đình chúng tôi
-              </p>
-              <AlbumIcon width={90} className="mt-5" />
+        {!bride && (
+          <section className="py-10 md:py-20 scroll-mt-20" id="groom">
+            <div className="container mx-auto">
+              <div className="flex flex-col justify-center items-center gap-3 px-5">
+                <h2 className="text-2xl md:text-[40px] uppercase tracking-widest text-center">Tiệc cưới nhà trai</h2>
+                <p className="md:text-lg text-zinc-500 text-center">
+                  Sự hiện diện của quý vị là niềm vinh hạnh cho gia đình chúng tôi
+                </p>
+                <AlbumIcon width={90} className="mt-5" />
+              </div>
             </div>
-          </div>
-          <div className="mt-10">
-            <div className="container hero relative m-auto text-white">
-              <Image
-                layout="fill"
-                className="object-cover object-center pointer-events-none z-1 rounded-lg"
-                src="/images/bg-4.jpg"
-                alt=""
-              />
-              <div className="hero-overlay bg-black/20 z-10"></div>
-              <div className="flex flex-col lg:flex-row gap-5 md:gap-20 items-stretch md:items-center px-5 py-10 md:px-20 md:py-24 z-20">
-                <div>
-                  <h3 className="text-2xl md:text-[32px] uppercase tracking-wider font-semibold">Tiệc cưới tại gia đình <br className="md:hidden" /> nhà trai</h3>
-                  <div className="mt-7 text-xl leading-9">
-                    <p>Được tổ chức vào lúc 10 giờ 30 phút</p>
-                    <p>Chủ nhật ngày 29 / 10 / 2023</p>
-                    <p>Địa chỉ: Xóm Ủy ban, Thôn Trung Tâm, Yên Phú, Văn Yên, Yên Bái</p>
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-5 mt-7">
-                    <div className="rounded-lg backdrop-blur-sm bg-white/30 p-5 flex items-center">
-                      <Countdown date="2023-10-29T03:30:00.999Z" />
+            <div className="mt-10">
+              <div className="container hero relative m-auto text-white">
+                <Image
+                  layout="fill"
+                  className="object-cover object-center pointer-events-none z-1 rounded-lg"
+                  src="/images/bg-4.jpg"
+                  alt=""
+                />
+                <div className="hero-overlay bg-black/20 z-10"></div>
+                <div className="flex flex-col lg:flex-row gap-5 md:gap-20 items-stretch md:items-center px-5 py-10 md:px-20 md:py-24 z-20">
+                  <div>
+                    <h3 className="text-2xl md:text-[32px] uppercase tracking-wider font-semibold">Tiệc cưới tại gia đình <br className="md:hidden" /> nhà trai</h3>
+                    <div className="mt-7 text-xl leading-9">
+                      <p>Được tổ chức vào lúc 10 giờ 30 phút</p>
+                      <p>Chủ nhật ngày 29 / 10 / 2023</p>
+                      <p>Địa chỉ: Xóm Ủy ban, Thôn Trung Tâm, Yên Phú, Văn Yên, Yên Bái</p>
                     </div>
-                    <Link
-                      className="hero relative rounded-lg min-h-[100px] w-full md:max-w-[200px] cursor-pointer text-white"
-                      href="https://maps.app.goo.gl/YLbxPGzwjodDPGjC8?g_st=ic"
-                      target="_blank"
-                    >
-                      <Image
-                        layout="fill"
-                        className="object-cover object-center pointer-events-none z-10 rounded-lg"
-                        src="/images/map-1.png"
-                        alt=""
-                      />
-                      <div className="hero-overlay bg-black/10 rounded-lg z-10"></div>
-                      <div className="flex gap-4 justify-between w-full p-5 z-50">
-                        <span className="text-lg">Chỉ đường</span>
-                        <DirectionIcon width={25} />
+                    <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-5 mt-7">
+                      <div className="rounded-lg backdrop-blur-sm bg-white/30 p-5 flex items-center">
+                        <Countdown date="2023-10-29T03:30:00.999Z" />
                       </div>
-                    </Link>
+                      <Link
+                        className="hero relative rounded-lg min-h-[100px] w-full md:max-w-[200px] cursor-pointer text-white"
+                        href="https://maps.app.goo.gl/YLbxPGzwjodDPGjC8?g_st=ic"
+                        target="_blank"
+                      >
+                        <Image
+                          layout="fill"
+                          className="object-cover object-center pointer-events-none z-10 rounded-lg"
+                          src="/images/map-1.png"
+                          alt=""
+                        />
+                        <div className="hero-overlay bg-black/10 rounded-lg z-10"></div>
+                        <div className="flex gap-4 justify-between w-full p-5 z-50">
+                          <span className="text-lg">Chỉ đường</span>
+                          <DirectionIcon width={25} />
+                        </div>
+                      </Link>
+                    </div>
                   </div>
-                </div>
-                <div className="p-10 rounded-lg backdrop-blur-lg bg-white/30 mt-5 md:mt-0">
-                  <StaticCalendar date="2023/10/29" className="!max-w-full md:max-w-[350px]" />
+                  <div className="p-10 rounded-lg backdrop-blur-lg bg-white/30 mt-5 md:mt-0">
+                    <StaticCalendar date="2023/10/29" className="!max-w-full md:max-w-[350px]" />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         <section className="mt-10 md:mt-16 scroll-mt-20" id="bank-info">
           <div className="container m-auto">
