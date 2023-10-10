@@ -193,7 +193,7 @@ const HomePage: NextPage<Props> = ({ invitee, bride }) => {
                 </div>
               </div>
 
-              <div className="w-full relative md:hidden sm:block">
+              <div className="w-full relative md:hidden sm:block min-h-[400px]">
                 <div className="stack">
                   <div className="card">
                     <Image className="h-auto w-full rounded-lg" src="/images/album/13.jpg" alt="" width={500} height={500} />
@@ -206,10 +206,10 @@ const HomePage: NextPage<Props> = ({ invitee, bride }) => {
                   </div>
                 </div>
                 <div
-                  className="absolute w-24 h-28 bottom-10 left-10 bg-[#EAEAEA] z-20 flex items-center justify-center rounded-l rounded-bl rounded-r-xl rounded-br-xl shadow before:absolute before:w-[1px] before:h-full before:bg-zinc-300 before:top-0 before:left-2 pl-2"
+                  className="absolute w-[88px] h-[95px] bottom-10 left-10 bg-[#EAEAEA] z-20 flex items-center justify-center rounded-l rounded-bl rounded-r-xl rounded-br-xl shadow before:absolute before:w-[1px] before:h-full before:bg-zinc-300 before:top-0 before:left-2 pl-2"
                   onClick={showAlbum}
                 >
-                  <div className="w-[70px] h-[70px] rounded-full flex items-center justify-center border border-zinc-300/80 relative">
+                  <div className="w-[65px] h-[65px] rounded-full flex items-center justify-center border border-zinc-300/80 relative">
                     <span className="text-center z-20 text-white drop-shadow text-sm">Xem album</span>
                     <Image
                       layout="fill"
@@ -457,8 +457,8 @@ const HomePage: NextPage<Props> = ({ invitee, bride }) => {
       <dialog id="album-modal" className="modal" ref={albumModalRef}>
         <div className="modal-box w-full h-full max-w-none max-h-none rounded-none p-0">
           <form method="dialog" className="flex justify-between sticky top-0 px-6 py-3 backdrop-blur-lg bg-white/70 shadow">
-            <h3 className="font-bold text-lg">Album ảnh cưới</h3>
-            <button className="btn btn-sm btn-circle btn-ghost">✕</button>
+            <h3 className="font-normal text-base leading-[32px]">Album ảnh cưới</h3>
+            <button className="btn btn-sm btn-circle btn-ghost" tabIndex={0}>✕</button>
           </form>
           <div className="columns-1 gap-6 p-6">
             <div className="mt-0">
