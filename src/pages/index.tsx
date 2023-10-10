@@ -34,10 +34,11 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
 };
 
 const HomePage: NextPage<Props> = ({ invitee, bride }) => {
-  const modalRef = useRef<HTMLDialogElement>(null);
+  const welcomeModalRef = useRef<HTMLDialogElement>(null);
+  const albumModalRef = useRef<HTMLDialogElement>(null);
   const { data } = useMessages('AuxEN8nLjFed');
 
-  const handleClick = (e: MouseEvent, targetId?: string) => {
+  const handleMenuClick = (e: MouseEvent, targetId?: string) => {
     const elem = document.activeElement as HTMLElement;
     if (elem) {
       elem?.blur();
@@ -58,10 +59,14 @@ const HomePage: NextPage<Props> = ({ invitee, bride }) => {
     }
   };
 
+  const showAlbum = () => {
+    albumModalRef.current?.showModal();
+  };
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (invitee) {
-        modalRef.current?.showModal();
+        welcomeModalRef.current?.showModal();
       }
     }, 1000);
 
@@ -72,8 +77,8 @@ const HomePage: NextPage<Props> = ({ invitee, bride }) => {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      if (modalRef.current?.open) {
-        modalRef.current?.close();
+      if (welcomeModalRef.current?.open) {
+        welcomeModalRef.current?.close();
       }
     }, 30000);
 
@@ -94,12 +99,12 @@ const HomePage: NextPage<Props> = ({ invitee, bride }) => {
             <Logo />
             <nav className="">
               <div className="flex items-center gap-4 text-md">
-                <Link onClick={(e) => handleClick(e)} href="#" className="px-2 py-8">Home</Link>
-                <Link onClick={(e) => handleClick(e, 'album')} href="#album" className="px-2 py-8">Album ảnh</Link>
-                <Link onClick={(e) => handleClick(e, 'bride')} href="#bride" className="px-2 py-8">Nhà gái</Link>
-                <Link onClick={(e) => handleClick(e, 'groom')} href="#groom" className="px-2 py-8">Nhà trai</Link>
-                <Link onClick={(e) => handleClick(e, 'bank-info')} href="#bank-info" className="px-2 py-8">Mừng cưới</Link>
-                <Link onClick={(e) => handleClick(e, 'message')} href="#message" className="px-2 py-8">Gửi lời chúc</Link>
+                <Link onClick={(e) => handleMenuClick(e)} href="#" className="px-2 py-8">Home</Link>
+                <Link onClick={(e) => handleMenuClick(e, 'album')} href="#album" className="px-2 py-8">Album ảnh</Link>
+                <Link onClick={(e) => handleMenuClick(e, 'bride')} href="#bride" className="px-2 py-8">Nhà gái</Link>
+                <Link onClick={(e) => handleMenuClick(e, 'groom')} href="#groom" className="px-2 py-8">Nhà trai</Link>
+                <Link onClick={(e) => handleMenuClick(e, 'bank-info')} href="#bank-info" className="px-2 py-8">Mừng cưới</Link>
+                <Link onClick={(e) => handleMenuClick(e, 'message')} href="#message" className="px-2 py-8">Gửi lời chúc</Link>
               </div>
             </nav>
           </div>
@@ -114,12 +119,12 @@ const HomePage: NextPage<Props> = ({ invitee, bride }) => {
                 <MenuIcon />
               </label>
               <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                <li className="py-1"><Link onClick={(e) => handleClick(e)} href="#">Home</Link></li>
-                <li className="py-1"><Link onClick={(e) => handleClick(e, 'album')} href="#album">Album ảnh</Link></li>
-                <li className="py-1"><Link onClick={(e) => handleClick(e, 'bride')} href="#bride">Nhà gái</Link></li>
-                <li className="py-1"><Link onClick={(e) => handleClick(e, 'groom')} href="#groom">Nhà trai</Link></li>
-                <li className="py-1"><Link onClick={(e) => handleClick(e, 'bank-info')} href="#bank-info">Mừng cưới</Link></li>
-                <li className="py-1"><Link onClick={(e) => handleClick(e, 'message')} href="#message">Gửi lời chúc</Link></li>
+                <li className="py-1"><Link onClick={(e) => handleMenuClick(e)} href="#">Home</Link></li>
+                <li className="py-1"><Link onClick={(e) => handleMenuClick(e, 'album')} href="#album">Album ảnh</Link></li>
+                <li className="py-1"><Link onClick={(e) => handleMenuClick(e, 'bride')} href="#bride">Nhà gái</Link></li>
+                <li className="py-1"><Link onClick={(e) => handleMenuClick(e, 'groom')} href="#groom">Nhà trai</Link></li>
+                <li className="py-1"><Link onClick={(e) => handleMenuClick(e, 'bank-info')} href="#bank-info">Mừng cưới</Link></li>
+                <li className="py-1"><Link onClick={(e) => handleMenuClick(e, 'message')} href="#message">Gửi lời chúc</Link></li>
               </ul>
             </div>
           </div>
@@ -137,7 +142,7 @@ const HomePage: NextPage<Props> = ({ invitee, bride }) => {
               <AlbumIcon width={90} className="mt-5" />
             </div>
             <div className="mt-10 mx-5">
-              <div className="columns-1 md:columns-2 lg:columns-3 gap-6">
+              <div className="columns-1 md:columns-2 lg:columns-3 gap-6 hidden md:block">
                 <div className="mt-0">
                   <Image className="h-auto w-full rounded-lg" src="/images/album/11.jpg" alt="" width={500} height={500} />
                 </div>
@@ -185,6 +190,35 @@ const HomePage: NextPage<Props> = ({ invitee, bride }) => {
                 </div>
                 <div className="mt-6">
                   <Image className="h-auto w-full rounded-lg" src="/images/album/10.jpg" alt="" width={500} height={500} />
+                </div>
+              </div>
+
+              <div className="w-full relative md:hidden sm:block">
+                <div className="stack">
+                  <div className="card">
+                    <Image className="h-auto w-full rounded-lg" src="/images/album/13.jpg" alt="" width={500} height={500} />
+                  </div>
+                  <div className="card">
+                    <Image className="h-auto w-full rounded-lg" src="/images/album/11.jpg" alt="" width={500} height={500} />
+                  </div>
+                  <div className="card">
+                    <Image className="h-auto w-full rounded-lg" src="/images/album/12.jpg" alt="" width={500} height={500} />
+                  </div>
+                </div>
+                <div
+                  className="absolute w-24 h-28 bottom-10 left-10 bg-[#EAEAEA] z-20 flex items-center justify-center rounded-l rounded-bl rounded-r-xl rounded-br-xl shadow before:absolute before:w-[1px] before:h-full before:bg-zinc-300 before:top-0 before:left-2 pl-2"
+                  onClick={showAlbum}
+                >
+                  <div className="w-[70px] h-[70px] rounded-full flex items-center justify-center border border-zinc-300/80 relative">
+                    <span className="text-center z-20 text-white drop-shadow text-sm">Xem album</span>
+                    <Image
+                      layout="fill"
+                      className="object-cover object-center pointer-events-none z-1 rounded-full shadow-inner"
+                      src="/images/album/14.jpg"
+                      alt=""
+                    />
+                    <div className="bg-black/20 rounded-full z-10 absolute top-0 left-0 w-full h-full"></div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -407,7 +441,7 @@ const HomePage: NextPage<Props> = ({ invitee, bride }) => {
           </div>
         </footer>
       </div>
-      <dialog id="modal" className="modal" ref={modalRef}>
+      <dialog id="welcome-modal" className="modal" ref={welcomeModalRef}>
         <div className="modal-box">
           <h3 className="font-bold text-lg mb-5">Xin chào!</h3>
           <p>Trân trọng kính mời {invitee} tới chung vui cùng cô dâu Thu Trang và chú rể Xuân Khánh</p>
@@ -416,6 +450,65 @@ const HomePage: NextPage<Props> = ({ invitee, bride }) => {
             <form method="dialog">
               <button className="btn outline-none">Đóng</button>
             </form>
+          </div>
+        </div>
+      </dialog>
+
+      <dialog id="album-modal" className="modal" ref={albumModalRef}>
+        <div className="modal-box w-full h-full max-w-none max-h-none rounded-none p-0">
+          <form method="dialog" className="flex justify-between sticky top-0 px-6 py-3 backdrop-blur-lg bg-white/70 shadow">
+            <h3 className="font-bold text-lg">Album ảnh cưới</h3>
+            <button className="btn btn-sm btn-circle btn-ghost">✕</button>
+          </form>
+          <div className="columns-1 gap-6 p-6">
+            <div className="mt-0">
+              <Image className="h-auto w-full rounded-lg" src="/images/album/11.jpg" alt="" width={500} height={500} />
+            </div>
+            <div className="mt-6">
+              <Image className="h-auto w-full rounded-lg" src="/images/album/13.jpg" alt="" width={500} height={500} />
+            </div>
+            <div className="mt-6">
+              <Image className="h-auto w-full rounded-lg" src="/images/album/2.jpg" alt="" width={500} height={500} />
+            </div>
+            <div className="mt-6">
+              <Image className="h-auto w-full rounded-lg" src="/images/album/4.jpg" alt="" width={500} height={500} />
+            </div>
+            <div className="mt-6">
+              <Image className="h-auto w-full rounded-lg" src="/images/album/6.jpg" alt="" width={500} height={500} />
+            </div>
+            <div className="mt-6">
+              <Image className="h-auto w-full rounded-lg" src="/images/album/8.jpg" alt="" width={500} height={500} />
+            </div>
+            <div className="mt-6">
+              <Image className="h-auto w-full rounded-lg" src="/images/album/14.jpg" alt="" width={500} height={500} />
+            </div>
+            <div className="mt-6">
+              <Image className="h-auto w-full rounded-lg" src="/images/album/12.jpg" alt="" width={500} height={500} />
+            </div>
+            <div className="mt-6">
+              <Image className="h-auto w-full rounded-lg" src="/images/album/20.jpg" alt="" width={500} height={500} />
+            </div>
+            <div className="mt-6">
+              <Image className="h-auto w-full rounded-lg" src="/images/album/16.jpg" alt="" width={500} height={500} />
+            </div>
+            <div className="mt-6">
+              <Image className="h-auto w-full rounded-lg" src="/images/album/3.jpg" alt="" width={500} height={500} />
+            </div>
+            <div className="mt-6">
+              <Image className="h-auto w-full rounded-lg" src="/images/album/18.jpg" alt="" width={500} height={500} />
+            </div>
+            <div className="mt-6">
+              <Image className="h-auto w-full rounded-lg" src="/images/album/7.jpg" alt="" width={500} height={500} />
+            </div>
+            <div className="mt-6">
+              <Image className="h-auto w-full rounded-lg" src="/images/album/22.jpg" alt="" width={500} height={500} />
+            </div>
+            <div className="mt-6">
+              <Image className="h-auto w-full rounded-lg" src="/images/album/5.jpg" alt="" width={500} height={500} />
+            </div>
+            <div className="mt-6">
+              <Image className="h-auto w-full rounded-lg" src="/images/album/10.jpg" alt="" width={500} height={500} />
+            </div>
           </div>
         </div>
       </dialog>
