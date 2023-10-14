@@ -103,8 +103,8 @@ const HomePage: NextPage<Props> = ({ invitee, bride }) => {
                 <Link onClick={(e) => handleMenuClick(e, 'album')} href="#album" className="px-2 py-8">Album ảnh</Link>
                 <Link onClick={(e) => handleMenuClick(e, 'bride')} href="#bride" className="px-2 py-8">Nhà gái</Link>
                 <Link onClick={(e) => handleMenuClick(e, 'groom')} href="#groom" className="px-2 py-8">Nhà trai</Link>
-                <Link onClick={(e) => handleMenuClick(e, 'bank-info')} href="#bank-info" className="px-2 py-8">Mừng cưới</Link>
                 <Link onClick={(e) => handleMenuClick(e, 'message')} href="#message" className="px-2 py-8">Gửi lời chúc</Link>
+                <Link onClick={(e) => handleMenuClick(e, 'bank-info')} href="#bank-info" className="px-2 py-8">Mừng cưới</Link>
               </div>
             </nav>
           </div>
@@ -123,8 +123,8 @@ const HomePage: NextPage<Props> = ({ invitee, bride }) => {
                 <li className="py-1"><Link onClick={(e) => handleMenuClick(e, 'album')} href="#album">Album ảnh</Link></li>
                 <li className="py-1"><Link onClick={(e) => handleMenuClick(e, 'bride')} href="#bride">Nhà gái</Link></li>
                 <li className="py-1"><Link onClick={(e) => handleMenuClick(e, 'groom')} href="#groom">Nhà trai</Link></li>
-                <li className="py-1"><Link onClick={(e) => handleMenuClick(e, 'bank-info')} href="#bank-info">Mừng cưới</Link></li>
                 <li className="py-1"><Link onClick={(e) => handleMenuClick(e, 'message')} href="#message">Gửi lời chúc</Link></li>
+                <li className="py-1"><Link onClick={(e) => handleMenuClick(e, 'bank-info')} href="#bank-info">Mừng cưới</Link></li>
               </ul>
             </div>
           </div>
@@ -276,6 +276,11 @@ const HomePage: NextPage<Props> = ({ invitee, bride }) => {
                         <DirectionIcon width={25} />
                       </div>
                     </Link>
+                    <div className="mt-1">
+                      <Link className="btn glass" href="https://docs.google.com/spreadsheets/d/15qLvB5bTeahp9idHLAwj3H2tMwzOAKztzH56wkWjDbA/edit?fbclid=IwAR1lwwrGU6QkoU67srsbCjNAMTbvvMuJHV5kJRKnIiCL9ah429q1xouVLDw#gid=923643296" target="_blank">
+                        Đăng ký đi xe về nhà gái
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -332,6 +337,11 @@ const HomePage: NextPage<Props> = ({ invitee, bride }) => {
                           <DirectionIcon width={25} />
                         </div>
                       </Link>
+                      <div className="mt-1">
+                        <Link className="btn glass text-white hover:text-zinc-700" href="https://docs.google.com/spreadsheets/d/1DtLMsBIsjA_OXt6vkzXIHaok1k2gNBD4hZHblAa4Mmw/edit?usp=sharing" target="_blank">
+                          Đăng ký đi xe về nhà trai
+                        </Link>
+                      </div>
                     </div>
                   </div>
                   <div className="p-10 rounded-lg backdrop-blur-lg bg-white/30 mt-5 md:mt-0">
@@ -342,6 +352,33 @@ const HomePage: NextPage<Props> = ({ invitee, bride }) => {
             </div>
           </section>
         )}
+
+        <section className="mt-5 py-10 md:py-20 scroll-mt-20" id="message">
+          <div className="container m-auto flex flex-col-reverse lg:grid lg:grid-cols-[1fr_1fr] gap-10 items-center">
+            <div className="bg-[url('/images/bg-8.jpg')] bg-cover bg-center  w-full">
+              <div className="rounded-lg w-full">
+                <SimpleBar className="max-h-[350px] md:max-h-[650px] w-full">
+                  <div className="flex flex-col gap-5 p-5">
+                    {data?.data.map((item: any) => (
+                      <MessageItem key={item._id} message={item} />
+                    ))}
+                  </div>
+                </SimpleBar>
+              </div>
+            </div>
+            <div className="md:p-7 md:shadow-md">
+              <div className="p-5 md:px-10 md:py-12 backdrop-blur-lg bg-white/30 md:border border-[#F3ECE9] md:rounded">
+                <div className="flex flex-col justify-center items-center gap-3 px-5 mb-10">
+                  <h2 className="text-2xl md:text-3xl uppercase tracking-widest text-center leading-10">Gửi lời chúc</h2>
+                  <p className="md:text-lg text-zinc-500 text-center mt-2">
+                    Những lời chúc tốt đẹp sẽ góp phần vun đắp hạnh phúc cho gia đình nhỏ của Khánh & Trang
+                  </p>
+                </div>
+                <MessageForm invitee={invitee} />
+              </div>
+            </div>
+          </div>
+        </section>
 
         <section className="mt-10 md:mt-16 scroll-mt-20" id="bank-info">
           <div className="container m-auto">
@@ -379,33 +416,6 @@ const HomePage: NextPage<Props> = ({ invitee, bride }) => {
                   <p className="text-xl">1903 6301 4920 11</p>
                   <p className="opacity-80">Chú rể</p>
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="mt-10 md:mt-20 py-10 md:py-20 scroll-mt-20" id="message">
-          <div className="container m-auto flex flex-col-reverse lg:grid lg:grid-cols-[1fr_1fr] gap-10 items-center">
-            <div className="bg-[url('/images/bg-8.jpg')] bg-cover bg-center  w-full">
-              <div className="rounded-lg w-full">
-                <SimpleBar className="max-h-[350px] md:max-h-[650px] w-full">
-                  <div className="flex flex-col gap-5 p-5">
-                    {data?.data.map((item: any) => (
-                      <MessageItem key={item._id} message={item} />
-                    ))}
-                  </div>
-                </SimpleBar>
-              </div>
-            </div>
-            <div className="md:p-7 md:shadow-md">
-              <div className="p-5 md:px-10 md:py-12 backdrop-blur-lg bg-white/30 md:border border-[#F3ECE9] md:rounded">
-                <div className="flex flex-col justify-center items-center gap-3 px-5 mb-10">
-                  <h2 className="text-2xl md:text-3xl uppercase tracking-widest text-center leading-10">Gửi lời chúc</h2>
-                  <p className="md:text-lg text-zinc-500 text-center mt-2">
-                    Những lời chúc tốt đẹp sẽ góp phần vun đắp hạnh phúc cho gia đình nhỏ của Khánh & Trang
-                  </p>
-                </div>
-                <MessageForm invitee={invitee} />
               </div>
             </div>
           </div>
