@@ -322,7 +322,7 @@ const HomePage: NextPage<Props> = ({ invitee, bride }) => {
                       </div>
                       <Link
                         className="hero relative rounded-lg min-h-[100px] w-full md:max-w-[200px] cursor-pointer text-white"
-                        href="https://maps.app.goo.gl/dGE2enF2mM4LpuEn6"
+                        href="https://maps.app.goo.gl/YLbxPGzwjodDPGjC8?g_st=ic"
                         target="_blank"
                       >
                         <Image
